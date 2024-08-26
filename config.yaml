@@ -1,0 +1,24 @@
+#config_version=6
+  
+hardware:
+    platform: fast
+fast:
+  net:
+    controller: neuron
+    io_loop:
+       j:
+        model: FP-I/O-2408
+        order: 1
+       d:
+        model: FP-I/O-3208
+        order: 2
+       e:
+        model: FP-I/O-1616
+        order: 3
+        
+
+switches:
+    s_trough1:
+       number: d-0
+       type: NC
+
