@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://eh7g2kfkq2e3"]
+
+[ext_resource type="Script" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_0qy8b"]
+
+[node name="Attract" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0qy8b")

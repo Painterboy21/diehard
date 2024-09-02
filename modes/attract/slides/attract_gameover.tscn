@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckyq3edvopmr7"]
+
+[ext_resource type="Script" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_e42lu"]
+[ext_resource type="VideoStream" path="res://videos/DMDSplash/GameOver.ogv" id="2_nr8c6"]
+[ext_resource type="Script" path="res://addons/mpf-gmc/classes/mpf_video_player.gd" id="3_xypos"]
+
+[node name="AttractGameover" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_e42lu")
+
+[node name="MPFVideoPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("2_nr8c6")
+autoplay = true
+script = ExtResource("3_xypos")
+events_when_stopped = "attract_gameover_finished"
+preview_in_editor = true

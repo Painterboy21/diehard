@@ -1,0 +1,173 @@
+#config_version=6
+  
+hardware:
+    platform: fast
+fast:
+  net:
+    controller: neuron
+    io_loop:
+       j:
+        model: FP-I/O-2408
+        order: 1
+       d:
+        model: FP-I/O-3208
+        order: 2
+       e:
+        model: FP-I/O-1616
+        order: 3
+        
+keyboard:
+    s:
+    switch: s_start
+
+switches:
+    s_trough1:
+        number: d-0
+        type: NC
+    s_trough2:
+        number: d-1
+    s_trough3:
+        number: d-2
+    s_trough4:
+        number: d-3
+    s_trough5:
+        number: d-4
+    s_trough6:
+        number: d-5
+    s_trough_jam:
+        number: d-6
+        type: NC
+    s_plunger:
+        number: d-7
+    s_left_sling:
+        number: d-8
+    s_right_sling:
+        number: d-9
+    s_left_outlane:
+        number: d-10    
+    s_right_flipper_eos:
+        number: d-12
+    s_left_flipper_eos:
+        number: d-11 
+    s_left_inlane:
+        number: d-13
+    s_holly_h:        
+        number: d-14
+    s_holly_o:
+        number: d-15
+    s_right_inlane:
+        number: d-16
+    s_right_outlane:
+        number: d-17
+    s_escape:
+        number: j-0
+    s_minus:
+        number: j-1
+    s_plus:
+        number: j-2
+    s_enter:
+        number: j-3
+    s_right_coin:
+        number: j-4
+    s_left_coin:
+        number: j-5
+    s_door_tilt:
+        number: j-6    
+    s_left_magna:
+        number: j-8
+    s_left_flipper:  
+        number: j-9
+    s_start:    
+        number: j-10
+    s_fire:
+        number: j-11
+    s_door:
+        number: j-12
+    s_right_flipper:
+        number: j-16
+    s_right_magna:
+        number: j-17     
+    s_tilt:
+        number: j-18
+  
+coils:
+    c_left_sling:
+        number: d-7
+        default_pulse_ms: 20ms
+    c_right_sling:
+        number: d-6
+        default_pulse_ms: 20ms
+    c_left_flipper_main:
+        number: d-3
+        default_pulse_ms: 35ms
+    c_left_flipper_hold:
+        number: d-2
+        allow_enable: true
+    c_right_flipper_main:
+        number: d-5
+        default_pulse_ms: 30ms
+    c_right_flipper_hold:
+        number: d-4
+        allow_enable: true
+    c_upper_flipper_main:
+        number: e-2
+        default_pulse_ms: 30ms
+    c_upper_flipper_hold:
+        number: e-3
+        allow_enable: true  
+    c_trough_eject: 
+        number: d-1
+        default_pulse_ms: 20ms
+    c_plunger:
+        number: d-0
+        default_pulse_ms: 20ms
+ball_devices:
+    bd_trough:
+        ball_switches: s_trough1, s_trough2, s_trough3, s_trough4, s_trough5, s_trough6, s_trough_jam
+        eject_coil: c_trough_eject
+        tags: trough, home, drain
+        jam_switch: s_trough_jam
+        eject_coil_jam_pulse: 15ms
+        eject_targets: bd_plunger
+        debug: true
+    bd_plunger:
+        ball_switches: s_plunger
+        eject_coil: c_plunger
+        player_controlled_eject_event: s_launch_button_active
+        eject_timeouts: 3s
+
+playfields:
+    playfield:
+        default_source_device: bd_plunger
+        tags: default
+
+
+autofire_coils:
+    left_sling:
+        coil: c_left_sling
+        switch: s_left_sling
+    right_sling:
+        coil: c_right_sling
+        switch: s_right_sling
+        
+flippers:
+    left_flipper:
+        main_coil: c_left_flipper_main
+        hold_coil: c_left_flipper_hold
+        activation_switch: s_left_flipper
+        eos_switch: s_left_flipper_eos
+        use_eos: true
+    right_flipper:
+        main_coil: c_right_flipper_main
+        hold_coil: c_right_flipper_hold
+        activation_switch: s_right_flipper
+        eos_switch: s_right_flipper_eos
+        use_eos: true
+    upper_flipper:
+        main_coil: c_left_flipper_main
+        hold_coil: c_left_flipper_hold
+        activation_switch: s_left_flipper
+        eos_switch: s_left_flipper_eos
+        use_eos: true    
+        
+

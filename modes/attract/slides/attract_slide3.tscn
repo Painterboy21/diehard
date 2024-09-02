@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn8b83njr375h"]
+
+[ext_resource type="Script" path="res://addons/mpf-gmc/classes/mpf_slide.gd" id="1_5mr3w"]
+[ext_resource type="VideoStream" path="res://videos/DMDSplash/HSBackground3.ogv" id="2_qlbh0"]
+[ext_resource type="Script" path="res://addons/mpf-gmc/classes/mpf_video_player.gd" id="3_qxxcw"]
+
+[node name="AttractSlide3" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5mr3w")
+
+[node name="MPFVideoPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1088.0
+stream = ExtResource("2_qlbh0")
+autoplay = true
+script = ExtResource("3_qxxcw")
+events_when_stopped = "attract_slide3_finished"
+preview_in_editor = true

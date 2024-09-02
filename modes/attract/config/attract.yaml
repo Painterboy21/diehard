@@ -1,0 +1,38 @@
+#config_version=6
+
+slide_player:
+  mode_attract_started: 
+    attract_startup:
+      action: play
+  attract_startup_finished:
+    attract_slide1: 
+      action: play      
+    attract_startup:
+      action: remove
+  attract_slide1_finished:
+    attract_slide2:
+      action: play
+    attract_slide1:
+      action: remove
+  attract_slide2_finished:
+    attract_slide3:
+      action: play
+    attract_slide2:
+      action: remove  
+  attract_slide3_finished:
+    attract_last_score:
+      action: play
+    attract_slide3:
+      action: remove  
+  attract_last_score_finished:
+    attract_gameover:
+      action: play
+    attract_last_score:
+      action: remove  
+  attract_gameover_finished:
+    attract_slide1:
+      action: play
+    attract_gameover:
+      action: remove       
+
+      
